@@ -24,28 +24,26 @@ function Home(){
         Axios.get(url).then((response)=>{
             let d = response?.data?.rows[0]?.elements[0]?.distance.text; 
            d = d.split(" ");
-            // let match =d.match(/(\d+)/);
-            // distance = match[0];
+
             distance = d[0];
-            // console.log(typeof distance);
-            // console.log(distance);
-            // const 
-            // console.log(match);
-            // console.log();
+          
         })
         calculateFare();
 
 // console.log(to);
     }
+    // let date = new date();
+    // console.log(date.toLocaleTimeString());
     const fixed = 25; 
     const fpk = 8
     function calculateFare(){
         console.log("Calculating fair: ");
+        console.log(distance);
         if(+distance<=2){
             console.log("Fare=",fixed); 
         }
         else if(+distance>2){
-            const fare = +distance*fpk; 
+            const fare = +distance*fpk+10; 
             console.log("Fare: ",fare); 
             console.log(fare);
         }
